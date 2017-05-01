@@ -24,10 +24,15 @@ sess = tf.Session()
 sess.run(tf.global_variables_initializer())
 
 # Fit the line with new training data
-for step in range(2001):
+for step in range(2501):
     cost_val, W_val, b_val, _ = sess.run([cost, W, b, train],
                                          feed_dict={X: [1,3,5,7,9],
-                                                    Y:[2.1,3.1,4.1,5.1,6.1]})
+                                                    Y:[3.2,9.2,15.2,21.2,27.2]})
     if step % 20 ==0:
         print("step: ", step, "cost_val: ", cost_val,
               "Weight: ", W_val, "bias: ", b_val)
+
+# Testing our model
+print(sess.run(hypothesis, feed_dict={X:[5]}))
+print(sess.run(hypothesis, feed_dict={X:[2.5]}))
+print(sess.run(hypothesis, feed_dict={X:[2.5,5.5]}))
