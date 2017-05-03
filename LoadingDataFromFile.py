@@ -8,7 +8,7 @@ tf.set_random_seed(777) # for reproducibility
 xy = np.loadtxt('./data/data_1.csv', delimiter=',', dtype=np.float32)
 
 x_data = xy[:, 0:-1] # extract train data
-y_data = xy[:, [1]] # extract label data
+y_data = xy[:, [-1]] # extract label data
 
 # Make sure the shape and data are ok
 print (x_data.shape, x_data, len(x_data))
