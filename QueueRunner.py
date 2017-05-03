@@ -15,7 +15,7 @@ xy = tf.decode_csv(value, record_defaults=record_defaults)
 
 # collect batches of csv in
 train_x_batch, train_y_batch = \
-    tf.train.batch([xy[0:-1], xy[-1:]], batch_size=10)
+    tf.train.batch([xy[0:-1], xy[-1:]], batch_size=30)
 
 
 # Placeholders for a tensor that will be always fed.
@@ -51,7 +51,7 @@ for step in range(3001):
     cost_val, hy_val, _ = sess.run(
         [cost, hypothesis, train],
         feed_dict={X:x_batch, Y:y_batch})
-    if step % 20 ==0:
+    if step % 100 ==0:
         print(step, "Cost: ", cost_val, "\nPrediction:\n", hy_val)
 
 coord.request_stop()
